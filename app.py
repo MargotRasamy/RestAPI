@@ -1,15 +1,21 @@
 from typing import Dict
 from fastapi import FastAPI, HTTPException
-from pydantic.main import Model
 from model_personne import ModelPersonne
+from pymongo import MongoClient
 
 app = FastAPI()
 
-# @app.get("/personnes", response_model=ModelPersonne)
-# def getPersonnesList():
-#     if (db.findOrFail(ssn)):
-#         return HTTPException
-#     return ModelPersonne(nom, prenom, ssn)
+host = 'mongodb'
+client = MongoClient(host=f'{host}')
+db = client.registre
+
+@app.get("/personnes", response_model=list<ModelPersonne>())
+def getPersonnesList():
+    return db.personnes.find({})
+    
+    # if (db.findOrFail(ssn)):
+    #     return HTTPException
+    # return ModelPersonne(nom, prenom, ssn)
 
 
 # @app.post("/personnes", response_model=ModelPersonne)
