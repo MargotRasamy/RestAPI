@@ -4,7 +4,7 @@
 FROM python:3.6.4-alpine3.7
 
 # Dependances dont on doit avoir bwsoin
-RUN pip install pymongo
+RUN pip install -U pymongo
 RUN pip install --upgrade pip
 
 # copy ce qu'on a dans l'image
@@ -16,7 +16,7 @@ COPY . .
 CMD python ./mongoseeder.py
 
 # build l'image du docker file
-# docker image build -t mongoseeder .
+# docker image build -t nomImage .
 
 # run
-# docker run -it --network mynet mongoseeder
+# docker run -it --network mynet nomImage

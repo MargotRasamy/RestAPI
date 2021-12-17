@@ -15,7 +15,7 @@ class MongoSeeder:
         """Seeds the database.
         """
         # Clearing collection
-        # self.db.personnes.remove({})
+        # self.db.personnes.remove({}) 
 
         # Insert valid and invalid data
         registre = []

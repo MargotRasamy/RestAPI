@@ -9,9 +9,9 @@ host = 'mongodb'
 client = MongoClient(host=f'{host}')
 db = client.registre
 
-@app.get("/personnes", response_model=list<ModelPersonne>())
+@app.get("/personnes")
 def getPersonnesList():
-    return db.personnes.find({})
+    return db.personnes.findAll({})
     
     # if (db.findOrFail(ssn)):
     #     return HTTPException
@@ -24,3 +24,6 @@ def getPersonnesList():
 #     if (db.findOrFail(ssn)):
 #         return HTTPException
 #     return ModelPersonne(nom, prenom, ssn)
+
+# Pour lancer le serveur uvicorn, on met en ligne de commande : avec hello le nom du fichier
+# uvicorn hello:app --reload
